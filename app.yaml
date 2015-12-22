@@ -1,0 +1,24 @@
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+# Endpoints handler: this must be /_ah/spi for Endpoints, NOT /_ah/api!
+# Endpoints handler
+- url: /js
+  static_dir: webclient/static/js
+- url: /bootstrap
+  static_dir: webclient/static/bootstrap
+- url: /
+  static_files: webclient/templates/index.html
+  upload: webclient/templates/index\.html
+- url: /_ah/spi/.*
+  script: playpenendpoint_api.APPLICATION
+
+
+libraries:
+
+- name: endpoints
+  version: 1.0
+- name: pycrypto
+  version: latest

@@ -1,0 +1,19 @@
+module: private-playpen-api
+runtime: python27
+threadsafe: true
+api_version: 1
+
+
+handlers:
+# Endpoints handler: this must be /_ah/spi for Endpoints, NOT /_ah/api!
+# Endpoints handler
+- url: /_ah/spi/.*
+  script: playpenendpoint_private_api.APPLICATION
+
+
+libraries:
+
+- name: endpoints
+  version: 1.0
+- name: pycrypto
+  version: latest
